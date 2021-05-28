@@ -62,8 +62,9 @@ const transcodeStreamToOutput = spawn('ffmpeg',[
     '-f', 'mp4', '-'
     ]
 );
-
+console.log("******transcodeStreamToOutput is *****", transcodeStreamToOutput);
 transcodeStreamToOutput.stderr.on('data', data => {
+    console.log("****transcodestreamtooutput*****", data);
     console.log(`[transcodeStreamToOutput process] stderr: ${(new Date()).toISOString()} ffmpeg: ${data}`);
 });
 
@@ -74,8 +75,9 @@ const month = timestamp.getMonth() + 1;
 const day = timestamp.getDate();
 const hour = timestamp.getUTCHours();
 const fileName = `${year}/${month}/${day}/${hour}/${fileTimestamp}.mp4`;
-conslole.log("transcodeStreamToOutput.stderr***: ",transcodeStreamToOutput.stderr);
-conslole.log("transcodeStreamToOutput.stdout****: ", transcodeStreamToOutput.stdout);
+conslole.log("****transcodeStreamToOutput object***: ",transcodeStreamToOutput);
+conslole.log("****transcodeStreamToOutput.stderr***: ",transcodeStreamToOutput.stderr);
+conslole.log("*****transcodeStreamToOutput.stdout****: ", transcodeStreamToOutput.stdout);
 new S3Uploader(BUCKET_NAME, fileName).uploadStream(transcodeStreamToOutput.stdout);
 
 // event handler for docker stop, not exit until upload completes
