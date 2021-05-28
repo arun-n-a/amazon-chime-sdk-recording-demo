@@ -17,7 +17,7 @@ class S3Uploader {
         this.bucket = bucket;
         this.key = key;
         this.s3Uploader = new AWS.S3({ params: { Bucket: bucket, Key: key } });
-        console.log(`[upload process] constructed a S3 object with bucket: ${this.bucket}, key: ${this.key}`);
+        console.log(`[upload process] **constructed a S3 object with bucket***: ${this.bucket}, key: ${this.key}`);
     }
 
     uploadStream(stream) {
@@ -26,6 +26,7 @@ class S3Uploader {
                 console.log('[stream upload process] - failure - error handling on failure', err);
             } else {
                 console.log(`[stream upload process] - success - uploaded the file to: ${data.Location}`);
+                console.log(`[upload process] **constructed a S3 object with bucket***: ${this.bucket}, stream: ${stream}`);
                 process.exit();
             }
         });
