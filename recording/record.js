@@ -12,7 +12,8 @@ const BUCKET_NAME = args[0];
 console.log(`[recording process] BUCKET_NAME: ${BUCKET_NAME}`);
 const BROWSER_SCREEN_WIDTH = args[1];
 const BROWSER_SCREEN_HEIGHT = args[2];
-console.log(`[recording process] BROWSER_SCREEN_WIDTH: ${BROWSER_SCREEN_WIDTH}, BROWSER_SCREEN_HEIGHT: ${BROWSER_SCREEN_HEIGHT}`);
+console.log(`[recording process] BROWSER_SCREEN_WIDTH: ${BROWSER_SCREEN_WIDTH}, 
+BROWSER_SCREEN_HEIGHT: ${BROWSER_SCREEN_HEIGHT}`);
 
 const VIDEO_BITRATE = 3000;
 const VIDEO_FRAMERATE = 30;
@@ -88,7 +89,7 @@ process.on('SIGTERM', (code, signal) => {
 
 // debug use - event handler for ctrl + c
 process.on('SIGINT', (code, signal) => {
-    console.log(`[recording process] exited with code ${code} and signal ${signal}(SIGINT)`)
+    console.log(`[recording process] exited with code ${code} and signal ${signal}(SIGINT)`);
     process.kill('SIGTERM');
 });
 
