@@ -1,6 +1,6 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
-
+// var frames = [];
 const { spawn } = require('child_process');
 const { S3Uploader } = require('./utils/upload');
 
@@ -66,7 +66,7 @@ const transcodeStreamToOutput = spawn('ffmpeg',[
 console.log("******transcodeStreamToOutput is *****", transcodeStreamToOutput);
 transcodeStreamToOutput.stderr.on('data', data => {
     console.log("****transcodestreamtooutput*****", data);
-    console.log(`[transcodeStreamToOutput process] stderr: ${(new Date()).toISOString()} ffmpeg: ${data}`);
+    console.log(`[transcodeStreamToOutput process] stderr*****: ${(new Date()).toISOString()} ffmpeg: ${data}`);
 });
 
 const timestamp = new Date();
